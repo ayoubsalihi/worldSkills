@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Anacote extends Model
+class Anecdote extends Model
 {
+    use HasFactory;
     protected $guarded = [];
 
     public function user(){
@@ -13,7 +15,7 @@ class Anacote extends Model
     }
 
     public function votes(){
-        return $this->belongsTo(Vote::class);
+        return $this->hasMany(Vote::class);
     }
     
 }
