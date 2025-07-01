@@ -12,14 +12,14 @@ class UserAuthController extends Controller
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
             'role' => 'sometimes|in:user,admin'
         ]);
 
         $user = User::create([
-            'name' => $validated['name'],
+            'username' => $validated['username'],
             'email' => $validated['email'],
             'password' => bcrypt($validated['password']),
             'role' => $validated['role'] ?? 'user'
