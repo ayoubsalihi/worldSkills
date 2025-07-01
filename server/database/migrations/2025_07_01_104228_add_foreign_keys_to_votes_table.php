@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('votes', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->nullable()->after('id');
-            $table->unsignedBigInteger('anacote_id')->nullable()->after('user_id');
+            $table->unsignedBigInteger('user_id')->nullable()->after('id')->unique();
+            $table->unsignedBigInteger('anecdote_id')->nullable()->after('user_id')->unique();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('anacote_id')->references('id')->on('anacotes');
+            $table->foreign('anecdote_id')->references('id')->on('anecdotes');
+
         });
     }
 
