@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('anecdotes', function (Blueprint $table) {
+
             $table->id();
             $table->string('title');
             $table->string('category');
@@ -27,5 +28,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('anecdotes');
+
     }
 };
