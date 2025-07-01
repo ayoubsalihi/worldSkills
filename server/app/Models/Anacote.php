@@ -15,4 +15,5 @@ class Anacote extends Model
     public function votes(){
         return $this->belongsTo(Vote::class);
     }
+    
 }
