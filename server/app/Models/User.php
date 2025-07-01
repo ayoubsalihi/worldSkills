@@ -45,4 +45,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function anacotes(){
+        return $this->hasMany(Anacote::class);
+    }
+
+    public function votes(){
+        return $this->hasMany(Vote::class);
+    }
 }
